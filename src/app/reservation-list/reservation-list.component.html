@@ -1,0 +1,14 @@
+<section class="container" id="content">
+            <header  class="row">
+                <h3 style="font-size:20px;font-weight:400; margin-left:20px">Reservations</h3> 
+                <p class="list-inline date-active">Tues, August 8, 2017 <span><img src="assets/images/date.png" ></span> </p>
+            </header> 
+            <ul class="list-unstyled list-items" *ngFor="let reservation of reservations | async">
+             
+              <!-- Reservation items will come here -->
+              <app-reservation-item [reservation]="reservation" (isFulfilling)="handleFulfillment($event)" (isCancelling)="handleCancellation($event)" ></app-reservation-item>
+
+            </ul>
+</section>
+
+  <app-popup-confirmation ></app-popup-confirmation>

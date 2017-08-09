@@ -1,0 +1,56 @@
+ <!-- MODAL Add Reservation-->
+        
+ <!-- The overlay -->
+<div  class="overlay" [style.width]="isOpen? '100%' : '0'">
+    
+<!-- md-modal md-effect-12  -->
+      <div  class="overlay-content"  id="modal-12" [style.display]="isOpen? 'block' : 'none'">
+			<div class="container">
+				
+				<div>
+            <div [hidden]="!submitted" class="text-center">
+            <h3>Reservation Added succesfully!</h3>
+            <button name="close" (click)="close()" class="btn btn-default md-close"style="margin-top:10px" >CLOSE</button>
+          </div>
+          <h3 class="text-center" [hidden]=submitted>Add New Reservation</h3>
+            
+					<form (ngSubmit)="onSubmit()" [hidden]=submitted #newReservationForm="ngForm">
+          
+                      <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text"  class="form-control" id="name" name="name" [(ngModel)]=reservation.name placeholder="Party Name" #name=ngModel required>
+                         <div [hidden]="name.valid || name.pristine" class="alert alert-danger">Name is required</div> 
+                      </div>
+                        <div class="row">
+                            <div class="form-group col-xs-6">
+                             <label for="date">Date</label>
+                            <input type="text"   class="form-control" id="date" name="date" [(ngModel)]="reservation.date"  #date=ngModel  placeholder="mm/dd/yyy" required>
+                           
+                             <div [hidden]="date.valid || date.pristine" class="alert alert-danger">Date is required</div>
+                            </div>
+                           <div class="form-group col-xs-6">
+                            <label for="time">Time</label>
+                            <input type="text" class="form-control" id="time" name="time" [(ngModel)]=reservation.time  placeholder="00:00" #time=ngModel required>
+                             <div [hidden]="time.valid || time.pristine" class="alert alert-danger">Date is required</div>
+                          </div>
+                        </div>
+                      
+                      <div class="form-group">
+                        <label for="number_of_person">Number Of Persons</label>
+                        <input type="number" class="form-control" id="number_of_person" name="number_of_person" [(ngModel)]=reservation.numberOfPersons #number_of_person=ngModel placeholder="Number Of Persons"  required>
+                         <div [hidden]="number_of_person.valid || number_of_person.pristine" class="alert alert-danger">Number of persons is required</div>
+                      </div>
+                      <div class="form-group text-center" style="margin-top:50px;">
+                        <ul class="list-inline col-xs-12">
+                            <li style="float:left;margin-left:-15px"> <button type="submit" (click)="close()" class="btn btn-default md-close"><span style="padding:5px 10px;font-size:14px; font-weight:100;  letter-spacing:.4px; ">CANCEL</span></button></li>
+                            <li style="float:right;"> <button type="submit" [disabled]="!newReservationForm.form.valid" (click)="createReservation();newReservationForm.reset()" class="btn btn-primary white md-close"><span style="padding:5px 10px;font-size:14px; font-weight:100;  letter-spacing:.4px; ">ADD</span></button></li>
+                        </ul>
+                      </div>
+                    </form>
+				</div>
+			</div>
+    </div>
+</div>
+      
+    <!--END MODAL -->
+      

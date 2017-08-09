@@ -1,0 +1,39 @@
+<li>
+    <div class="content col-xs-12 reservation-item {{reservation.status}} ">
+      <ul class="list-inline list-header">
+          <li><h4>{{reservation?.name}}</h4></li>
+          <li class="{{reservation.status}}"  *ngIf="reservation.status!=='new'"><span>{{reservation.status}}</span></li>
+          <li class="dropdown option-menu-btn" *ngIf="reservation.status=='new'" > 
+              <a id="dLabel" data-target="#" data-toggle="dropdown" aria-haspopup="false" > 
+                  <img src="assets/images/option_menu.png" class="option-menu-btn">
+                  </a>
+                <ul class="dropdown-menu option-menu"  aria-labelledby="dLabel" >
+                    <li><a href="#0" class="cd-popup-trigger" (click)="fulfill()">Fulfill Reservation</a></li>
+                    <li><a href="#0" class="cd-popup-trigger" (click)="cancel()">Cancel Reservation</a></li>   
+                  </ul>
+          </li>
+      </ul>
+      <div class="row item-content">
+          <div class="col-xs-6">
+              <ul class="list-unstyled">
+                  <li>Number of persons</li>
+                  <li>{{reservation?.numberOfPersons}}</li>
+              </ul>
+          </div>
+          <div class="col-xs-3">
+              <ul class="list-unstyled">
+                  <li>Date</li>
+                  <li>{{reservation.date | date:'shortDate'}}</li>
+              </ul>
+          </div>
+          <div class="col-xs-3">
+              <ul class="list-unstyled">
+                  <li>Time</li>
+                  <li>{{reservation.time}}</li>
+              </ul>
+          </div>
+      </div>
+  </div>
+</li>
+
+

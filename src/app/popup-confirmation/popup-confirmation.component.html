@@ -1,0 +1,14 @@
+  <!--  popup confirmation -->
+      
+      <div class="cd-popup" [ngClass]="{'is-visible':isOpen}"  role="alert">
+        <div class="cd-popup-container">
+            <p>{{message}}</p>
+            <ul class="cd-buttons list-unstyled">
+                <li><a href="#" (click)=confirmAction()>Yes</a></li>
+                <li><a href="#" (click)="close()">No</a></li>
+            </ul>
+            <a href="#0" class="cd-popup-close img-replace" (click)="close()">Close</a>
+        </div> <!-- cd-popup-container -->
+      </div> <!-- cd-popup -->
+      
+      <!-- End popup confirmation -->

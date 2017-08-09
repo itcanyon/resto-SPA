@@ -1,0 +1,25 @@
+<div id="container">
+        <header class="header">
+            <div class="container">
+                 <ul class="list-block">
+                    <li><img src="./assets/images/logo.png" /></li> 
+                    <li><a style="color:white;" href="#"><h3>Bon Point Resto</h3></a></li>
+                </ul> 
+                
+                <button  class=" button  add md-trigger" data-modal="modal-12" data-target="#gridSystemModal"(click)="showCreateReservation()" ><img class="plus" src="./assets/images/plus.png"></button>
+            </div>
+         </header>
+         <section class="container" id="content">
+             <!-- <header  class="row">
+                <h3 style="font-size:20px;font-weight:400; margin-left:20px">Reservations</h3> 
+                <p class="list-inline date-active">Tues, August 8, 2017 <span><img src="./assets/images/date.png" ></span> </p>
+            </header>  -->
+              <app-reservation-list></app-reservation-list>
+             
+         </section>
+      
+    </div>
+
+    <app-new-reservation-modal></app-new-reservation-modal>
+
+  
